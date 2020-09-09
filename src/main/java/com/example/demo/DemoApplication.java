@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+
 @SpringBootApplication
 @RestController
 public class DemoApplication {
@@ -25,8 +27,8 @@ public class DemoApplication {
 	}
 	
 	@GetMapping("/gifts")
-	public String gifts() {
-		String gifts = giftsService.getAllGifts();
+	public ArrayList<Gift> gifts() {
+		ArrayList<Gift> gifts = giftsService.getAllGifts();
 		return gifts;
 	}
 

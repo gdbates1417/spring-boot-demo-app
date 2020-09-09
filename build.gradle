@@ -16,6 +16,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation platform('software.amazon.awssdk:bom:2.14.12')
 	implementation 'software.amazon.awssdk:dynamodb'
+	implementation 'software.amazon.awssdk:dynamodb-enhanced'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
