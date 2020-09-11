@@ -22,9 +22,11 @@ public class GiftsService {
     private Region region = Region.US_WEST_2;
     private DynamoDbClient ddb = DynamoDbClient.builder().region(region).build();
     private DynamoDbEnhancedClient enhancedClient = DynamoDbEnhancedClient.builder().dynamoDbClient(ddb).build();
-    ArrayList<Gift> giftsList = new ArrayList<>();
+    
 
     public ArrayList<Gift> getAllGifts() {
+        
+        ArrayList<Gift> giftsList = new ArrayList<>();
         
         try {
             DynamoDbTable<Gift> giftTable = enhancedClient.table("gifts", TableSchema.fromBean(Gift.class));
