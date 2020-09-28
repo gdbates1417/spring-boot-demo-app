@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpHeaders;
 
 import java.util.ArrayList;
 
@@ -21,15 +23,26 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	@GetMapping("/hello")
-	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return String.format("Hello %s!", name);
+	@GetMapping("/")
+	public String healthCheck() {
+		return "okay";
+	}
+	
+	@GetMapping("/mgs")
+	public String healthCheck() {
+		return "meagngreensubmarine";
 	}
 	
 	@GetMapping("/gifts")
-	public ArrayList<Gift> gifts() {
+	public ResponseEntity<ArrayList<Gift>> gifts() {
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.set("Content-Type", "application/json");
+		
 		ArrayList<Gift> gifts = giftsService.getAllGifts();
-		return gifts;
+		ResponseEntity response = ResponseEntity.ok().headers(responseHeaders).body(gifts);
+		
+		return response;
 	}
 
 
