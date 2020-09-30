@@ -1,0 +1,6 @@
+[
+  {
+    "name": "spring-boot-demo-app",
+    "imageUri": "190045569753.dkr.ecr.us-west-2.amazonaws.com/spring-boot-demo-app:latest"
+  }
+]
