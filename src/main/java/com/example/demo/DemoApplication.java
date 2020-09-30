@@ -29,7 +29,7 @@ public class DemoApplication {
 	}
 	
 	@GetMapping("/mgs")
-	public String healthCheck() {
+	public String mgs() {
 		return "meagngreensubmarine";
 	}
 	
